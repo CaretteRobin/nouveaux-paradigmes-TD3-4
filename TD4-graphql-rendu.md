@@ -29,14 +29,17 @@ utiles au TD, puis deux utilisateurs sont associes a ce role : un utilisateur av
 et un utilisateur utilise pour obtenir un JWT.
 
 ![Role dedie et permissions](screens/Role_TD4_reader.png){ width=90% }
+
 Ce role regroupe les droits de lecture sur l'ensemble des collections metier. Il isole
 les acces GraphQL par rapport au role `Public` et permet de tester l'authentification.
 
 ![Utilisateurs associes au role](screens/Users_directus.png){ width=90% }
+
 Deux comptes sont presentes : un utilisateur "statique" pour les tests avec token fixe
 et un utilisateur "jwt" pour les tests via login. Cela couvre les deux mecanismes demandes.
 
 ![Echec sans token](screens/Error_NoToken.png){ width=90% }
+
 Cette capture montre un refus d'acces sans token : la requete echoue quand le role `Public`
 ne possede plus les droits. C'est la preuve que les restrictions sont effectives.
 
@@ -218,6 +221,7 @@ query {
 Requete imbriquee pour remonter les praticiens et leur specialite par structure.
 
 ![Requetes GraphQL et resultat](screens/Bruno_queries10.png){ width=90% }
+
 Cette capture confirme l'execution des requetes GraphQL avec des relations imbriquees.
 Elle sert de preuve d'execution pour les requetes 1 a 10, en particulier la requete 10.
 
@@ -414,6 +418,7 @@ Variables :
 ```
 
 ![Mutation GraphQL (admin)](screens/Mutation_admin.png){ width=90% }
+
 Cette capture prouve l'execution des mutations en contexte admin et la creation
 d'une specialite. Elle valide le bon fonctionnement des operations d'ecriture.
 

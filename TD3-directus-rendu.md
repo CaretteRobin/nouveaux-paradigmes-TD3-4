@@ -17,6 +17,7 @@ Ce compte rendu presente la mise en place d'un CMS headless avec Directus pour u
 Le service est deploye avec Docker Compose. Le conteneur Directus est expose sur le port 8055.
 
 ![Demarrage des conteneurs Docker](screens/screen1-docker-ps.png){ width=90% }
+
 Ce terminal montre le lancement via `docker compose up -d` puis la verification avec `docker ps`. On constate que Directus est actif (port 8055) ainsi que la base de donnees. Une tentative initiale a signale un daemon Docker non disponible, puis le demarrage a reussi.
 
 ## Modele de donnees
@@ -29,24 +30,29 @@ Le modele suit le schema du domaine "praticiens de sante". Les collections princ
 - tables de jonction `praticien2motif` et `praticien2moyen`
 
 ![Vue globale du data model](screens/screen3-data-model.png){ width=90% }
+
 Cette vue liste toutes les collections definies dans Directus, confirmant l'existence du modele complet et la preparation des relations.
 
 ![Champs de la collection praticien](screens/screen4-praticien-fields.png){ width=90% }
+
 Les champs principaux du praticien sont visibles, ainsi que les relations vers `specialite` et `structure`. Cela valide la modelisation M2O attendue.
 
 ## Chargement des donnees (CSV)
 Les donnees sont importees depuis des fichiers CSV avec separateur `;` afin de reprendre un jeu existant.
 
 ![Extrait du fichier praticien.csv](screens/screen-praticien-csv.png){ width=90% }
+
 L'extrait montre les colonnes attendues (nom, prenom, ville, email, telephone, etc.) et les cles d'association (specialite, structure). Cela garantit la compatibilite avec les relations du modele.
 
 ![Donnees importees dans Directus](screens/screen4-praticien-imported-data.png){ width=90% }
+
 La liste des praticiens confirme que l'import a ete effectue correctement et que les enregistrements sont consultables dans l'interface.
 
 ## Verification dans le backoffice
 Apres import, les collections sont consultables et navigables directement via l'interface.
 
 ![Vue backoffice Directus](screens/screen2-accueil.png){ width=90% }
+
 Cet ecran illustre l'acces aux collections et aux items, confirmant la disponibilite des donnees dans le backoffice.
 
 ## API REST (exposition des donnees)
@@ -107,18 +113,23 @@ Ces requetes valident l'exposition REST attendue, la selection de champs (`field
 Les captures suivantes illustrent des actions realisees en parallele pour preparer l'API GraphQL et les droits d'acces (hors perimetre strict du TD3, mais utiles pour la suite).
 
 ![Role lecteur et permissions](screens/Role_TD4_reader.png){ width=90% }
+
 Creation d'un role dedie avec les droits de lecture sur les collections necessaires. Cela sert a controler l'acces a l'API.
 
 ![Utilisateurs lies au role](screens/Users_directus.png){ width=90% }
+
 Deux comptes sont associes au role : un utilisateur avec token statique et un utilisateur pour JWT, afin de tester l'authentification.
 
 ![Requete GraphQL sans token](screens/Error_NoToken.png){ width=90% }
+
 Test d'acces sans authentification : la requete echoue, ce qui confirme que les permissions publiques sont bien restreintes.
 
 ![Requete GraphQL avec donnees imbriquees](screens/Bruno_queries10.png){ width=90% }
+
 Verification d'une requete GraphQL renvoyant des structures et leurs praticiens avec specialite. Cela valide la navigation dans les relations cote API.
 
 ![Mutation GraphQL admin](screens/Mutation_admin.png){ width=90% }
+
 Exemple de mutation (creation d'une specialite) en tant qu'admin, pour verifier les operations d'ecriture.
 
 ## Conclusion
