@@ -1,0 +1,5 @@
+id;nom;prenom;ville;email;telephone;rpps_id;organisation;nouveau_patient;titre;specialite;structure
+1;Martin;Claire;Nancy;claire.martin@example.org;0610101010;RPPS1001;false;true;Dr;1;1
+2;Durand;Luc;Villers-sur-Mer;luc.durand@example.org;0620202020;RPPS1002;false;false;Dr;2;2
+3;Petit;Sarah;Luneville;sarah.petit@example.org;0630303030;RPPS1003;true;true;Dr;2;3
+4;Bernard;Alex;Nancy;alex.bernard@example.org;0640404040;RPPS1004;false;true;Dr;3;1
