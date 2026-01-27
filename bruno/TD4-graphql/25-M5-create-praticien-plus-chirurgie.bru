@@ -1,0 +1,44 @@
+meta {
+  name: M5-create-praticien-plus-chirurgie
+  type: http
+  seq: 25
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+mutation {
+  create_praticien_item(
+    data: {
+      nom: "Bernard"
+      prenom: "Claire"
+      ville: "Lyon"
+      email: "claire.bernard@example.fr"
+      telephone: "0677889900"
+      specialite: { libelle: "chirurgie" }
+    }
+  ) {
+    id
+    nom
+    prenom
+    specialite {
+      id
+      libelle
+    }
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

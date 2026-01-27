@@ -1,0 +1,30 @@
+meta {
+  name: Auth-token-moyen-paiement
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query {
+  moyen_paiement {
+    id
+    libelle
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

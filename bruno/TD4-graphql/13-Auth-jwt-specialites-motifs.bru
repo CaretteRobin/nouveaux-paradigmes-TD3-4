@@ -1,0 +1,34 @@
+meta {
+  name: Auth-jwt-specialites-motifs
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query {
+  specialite {
+    id
+    libelle
+    motif_visite {
+      id
+      libelle
+    }
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

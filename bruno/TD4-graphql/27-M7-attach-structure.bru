@@ -1,0 +1,35 @@
+meta {
+  name: M7-attach-structure
+  type: http
+  seq: 27
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+mutation RattacherPraticienStructure($praticienId: ID!, $structureId: ID!) {
+  update_praticien_item(id: $praticienId, data: { structure: $structureId }) {
+    id
+    nom
+    structure {
+      id
+      nom
+      ville
+    }
+  }
+}
+"""
+  variables: """
+{ "praticienId": 1, "structureId": 3 }
+"""
+}

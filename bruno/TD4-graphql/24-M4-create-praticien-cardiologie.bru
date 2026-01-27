@@ -1,0 +1,43 @@
+meta {
+  name: M4-create-praticien-cardiologie
+  type: http
+  seq: 24
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+mutation CreerPraticienCardio($specialiteId: ID!) {
+  create_praticien_item(
+    data: {
+      nom: "Martin"
+      prenom: "Leo"
+      ville: "Nancy"
+      email: "leo.martin@example.fr"
+      telephone: "0611223344"
+      specialite: $specialiteId
+    }
+  ) {
+    id
+    nom
+    prenom
+    specialite {
+      libelle
+    }
+  }
+}
+"""
+  variables: """
+{ "specialiteId": 10 }
+"""
+}

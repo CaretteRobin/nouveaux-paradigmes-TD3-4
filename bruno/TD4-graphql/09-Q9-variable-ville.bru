@@ -1,0 +1,33 @@
+meta {
+  name: Q9-variable-ville
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query PracticiensParVille($ville: String) {
+  praticien(filter: { ville: { _eq: $ville } }) {
+    id
+    nom
+    prenom
+    telephone
+    ville
+  }
+}
+"""
+  variables: """
+{ "ville": "Paris" }
+"""
+}

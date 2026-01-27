@@ -1,0 +1,39 @@
+meta {
+  name: M2-create-praticien
+  type: http
+  seq: 22
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+mutation {
+  create_praticien_item(
+    data: {
+      nom: "Dupont"
+      prenom: "Alice"
+      ville: "Paris"
+      email: "alice.dupont@example.fr"
+      telephone: "0102030405"
+    }
+  ) {
+    id
+    nom
+    prenom
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

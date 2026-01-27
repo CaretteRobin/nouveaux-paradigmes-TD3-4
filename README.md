@@ -9,7 +9,8 @@ Depot : https://github.com/CaretteRobin/nouveaux-paradigmes-TD3-4.git
 - `data/` : fichiers CSV d'import
 - `TD3-directus-rendu.pdf` : rendu TD3
 - `TD4-graphql-rendu.pdf` : rendu TD4
-- captures ecran a la racine (preuves)
+- `screens/` : captures ecran (preuves)
+- `bruno/TD4-graphql/` : collection Bruno (requetes et mutations TD4)
 
 ## Demarrage rapide
 ```bash

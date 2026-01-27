@@ -1,0 +1,38 @@
+meta {
+  name: Q10-structures-praticiens
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query {
+  structure {
+    nom
+    ville
+    praticiens {
+      nom
+      prenom
+      email
+      specialite {
+        libelle
+      }
+    }
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

@@ -1,0 +1,33 @@
+meta {
+  name: Q5-filter-email-fr
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query {
+  praticien(filter: { email: { _contains: ".fr" } }) {
+    id
+    nom
+    prenom
+    email
+    ville
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

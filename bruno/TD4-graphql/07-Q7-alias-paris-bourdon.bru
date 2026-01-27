@@ -1,0 +1,36 @@
+meta {
+  name: Q7-alias-paris-bourdon
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query {
+  praticiens_paris: praticien(filter: { ville: { _eq: "Paris" } }) {
+    id
+    nom
+    prenom
+  }
+  praticiens_bourdon: praticien(filter: { ville: { _eq: "Bourdon-les-Bains" } }) {
+    id
+    nom
+    prenom
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

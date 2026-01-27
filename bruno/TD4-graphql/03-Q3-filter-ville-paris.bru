@@ -1,0 +1,36 @@
+meta {
+  name: Q3-filter-ville-paris
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query {
+  praticien(filter: { ville: { _eq: "Paris" } }) {
+    id
+    nom
+    prenom
+    telephone
+    ville
+    specialite {
+      libelle
+    }
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

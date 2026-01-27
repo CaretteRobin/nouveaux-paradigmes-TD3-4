@@ -1,0 +1,40 @@
+meta {
+  name: Q4-praticiens-structure
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+query {
+  praticien {
+    id
+    nom
+    prenom
+    telephone
+    ville
+    specialite {
+      libelle
+    }
+    structure {
+      nom
+      ville
+    }
+  }
+}
+"""
+  variables: """
+{}
+"""
+}

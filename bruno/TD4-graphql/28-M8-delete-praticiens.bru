@@ -1,0 +1,29 @@
+meta {
+  name: M8-delete-praticiens
+  type: http
+  seq: 28
+}
+
+post {
+  url: {{baseUrl}}/graphql
+  body: graphql
+  auth: none
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer {{token}}
+}
+
+body:graphql {
+  query: """
+mutation SupprimerPraticiens($ids: [ID!]!) {
+  delete_praticien_items(ids: $ids) {
+    ids
+  }
+}
+"""
+  variables: """
+{ "ids": [2, 3] }
+"""
+}
