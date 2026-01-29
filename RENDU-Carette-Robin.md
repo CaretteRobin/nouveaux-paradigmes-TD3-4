@@ -1,13 +1,13 @@
 # Rendu TD3/TD4 - Nouveaux Paradigmes
 
-Auteur : Carette Robin  
+Auteurs : Carette Robin - Franoux Noé
 Depot : https://github.com/CaretteRobin/nouveaux-paradigmes-TD3-4.git
 
 ## Contexte
-Le TD tire au sort est le TD4 (GraphQL). J'ai regroupe le TD3 et le TD4 dans le meme depot
-car ils sont directement lies (modele Directus, donnees, puis requetes GraphQL). J'avais
-initialement un rendu unique, mais j'ai separe les rendus par TD tout en gardant un depot
-commun et coherent.
+Le TD tire au sort est le TD4 (GraphQL) et c'est celui qui est rendu. Le TD3 est present
+dans le depot uniquement parce qu'il fournit le modele Directus et les donnees necessaires
+au TD4. Le rendu du TD4 est complet (requetes, autorisations, mutations) et constitue le
+livrable principal.
 
 ## Ou trouver les rendus
 - `TD3-directus-rendu.pdf` et `TD3-directus-rendu.md`

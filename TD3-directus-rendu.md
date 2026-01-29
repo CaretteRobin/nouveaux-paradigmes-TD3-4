@@ -1,6 +1,6 @@
 # TD3 - CMS headless Directus - Compte rendu
 
-Auteur : Carette Robin  
+Auteurs : Carette Robin - Franoux Noé
 Depot : https://github.com/CaretteRobin/nouveaux-paradigmes-TD3-4.git
 
 ## Introduction
